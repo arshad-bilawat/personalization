@@ -5,6 +5,15 @@
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
   </div>
+  
+  <div *ngIf="userService.userType=='type1'">
+    <label for="hero-rating">Hero Rating: </label>
+    <input id="hero-rating" [(ngModel)]="hero.rating" placeholder="Hero rating"/>
+  </div>
+  <div *ngIf="userService.userType=='type1'">
+    <label for="hero-cost">Hero cost: </label>
+    <input id="hero-cost" [(ngModel)]="hero.cost" placeholder="Hero cost"/>
+  </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
 </div>

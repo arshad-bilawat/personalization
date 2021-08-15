@@ -1,12 +1,27 @@
+<div style="position: absolute;">
+  <input id="type1" type="radio" value="type1" name="userType" (change)="setUserType($event)" checked>
+  <label for="type1">Type 1</label>
+
+  <input id="type2" type="radio" value="type2" name="userType" (change)="setUserType($event)">
+  <label for="type2">Type 2</label>
+
+  <input id="type3" type="radio" value="type3" name="userType" (change)="setUserType($event)">
+  <label for="type3">Type 3</label>
+</div>
+<br />
+
 <h1>{{title}}</h1>
+
 <nav>
   <a class='links' routerLink="/dashboard">Dashboard</a>
-  <a class='links' routerLink="/heroes">Heroes</a>
+  <a class='links' routerLink="/heroes" *ngIf="userService.userType!='type3'">Heroes</a>
 </nav>
 <router-outlet></router-outlet>
+<div *ngIf="userService.userType=='type1'">
 <app-messages></app-messages>
 <script>
-  $('.links').on('click', function(e){
-  console.log(e.target.innerText + " " + e.target + " " + e.timeStamp);
-}); 
+  $('.links').on('click', function (e) {
+    console.log(e.target.innerText + " " + e.target + " " + e.timeStamp);
+  });
 </script>
+</div>

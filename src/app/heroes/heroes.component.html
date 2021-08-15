@@ -13,7 +13,14 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a class='links' routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span class="badge">{{hero.id}}</span>
+
+      <span *ngIf="userService.userType=='type1'">
+        <span class="badge">{{hero.rating}}</span>
+        <span class="badge">{{hero.cost}}</span>  
+      </span>
+      {{hero.name}}  
+
     </a>
     <button class="delete" title="delete hero"
       (click)="delete(hero)">x</button>

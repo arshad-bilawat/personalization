@@ -5,7 +5,14 @@ export class MessageService {
   messages: string[] = [];
 
   add(message: string) {
-    this.messages.push(message);
+    if(this.messages.length==3){
+      this.messages=[];
+      this.messages.push(message);
+
+    }
+    else{
+      this.messages.push(message);
+    }
   }
 
   clear() {
