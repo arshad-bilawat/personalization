@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: node-app
-        path: .
+        path: /home/runner/work/personalization/personalization/dist/
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,6 +51,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'personalization'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_c2c15931b2bc4f2a93b024beada964c1 }}
         package: .
