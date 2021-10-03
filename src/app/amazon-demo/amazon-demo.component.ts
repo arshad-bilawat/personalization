@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class AmazonDemoComponent implements OnInit {
 
   constructor() { }
-
+public type: number=2;
   ngOnInit(): void {
+    if(window.navigator.userAgent.indexOf('Edg')>0){
+      this.type=2;
+    }
+    else{
+      this.type=1;
+    }
   }
 
 }

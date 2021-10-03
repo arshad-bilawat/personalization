@@ -15,6 +15,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AmazonDemoComponent } from './amazon-demo/amazon-demo.component';
+import { AmazonDemoOldComponent } from './amazon-demo-old/amazon-demo-old.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { AmazonDemoComponent } from './amazon-demo/amazon-demo.component';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    AmazonDemoComponent
+    AmazonDemoComponent,
+    AmazonDemoOldComponent
   ],
   bootstrap: [ AppComponent ],
   schemas: [
