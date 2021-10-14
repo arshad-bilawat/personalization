@@ -10,6 +10,7 @@ import { AmazonDemoContainerComponent } from './amazon-demo-container/amazon-dem
 
 const routes: Routes = [
   { path: '', redirectTo: '/amazon-demo/1', pathMatch: 'full' },
+  { path: 'amazon-demo', redirectTo: '/amazon-demo/1', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
