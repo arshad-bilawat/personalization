@@ -25,13 +25,25 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/static"
+              "src/static",
+              "src/static/images",
+              "src/static/images/landscape",
+              "src/static/images/laptop",
+              "src/static/images/products"
             ], 
             "styles": [
               "src/styles.css",
-              "src/static/css/az_product.css",
-              "src/static/css/slider.css"
-
+              "src/static/css/add_cart_bottom.css",
+              "src/static/css/buy_now.css",
+              "src/static/css/image_prioritize.css",
+              "src/static/css/original.css",
+              "src/static/css/product_feature.css",
+              "src/static/css/product_price.css",
+              "src/static/css/product_review.css",
+              "src/static/css/product_title.css",
+              "src/static/css/promotion.css",
+              "src/static/css/show_other_products.css",
+              "src/static/css/star-style.css"
             ],
             "scripts": [],
             "vendorChunk": true,

@@ -16,6 +16,18 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AmazonDemoComponent } from './amazon-demo/amazon-demo.component';
 import { AmazonDemoOldComponent } from './amazon-demo-old/amazon-demo-old.component';
+import { AmazonDemoContainerComponent } from './amazon-demo-container/amazon-demo-container.component';
+import { DemoComponentAComponent } from './amazon-demo-container/demo-component-a/demo-component-a.component';
+import { DemoComponentBComponent } from './amazon-demo-container/demo-component-b/demo-component-b.component';
+import { DemoComponentCComponent } from './amazon-demo-container/demo-component-c/demo-component-c.component';
+import { DemoComponentDComponent } from './amazon-demo-container/demo-component-d/demo-component-d.component';
+import { DemoComponentEComponent } from './amazon-demo-container/demo-component-e/demo-component-e.component';
+import { DemoComponentFComponent } from './amazon-demo-container/demo-component-f/demo-component-f.component';
+import { DemoComponentGComponent } from './amazon-demo-container/demo-component-g/demo-component-g.component';
+import { DemoComponentHComponent } from './amazon-demo-container/demo-component-h/demo-component-h.component';
+import { DemoComponentIComponent } from './amazon-demo-container/demo-component-i/demo-component-i.component';
+import { DemoComponentJComponent } from './amazon-demo-container/demo-component-j/demo-component-j.component';
+import { DemoHostDirective } from './amazon-demo-container/demo-host.directive';
 
 @NgModule({
   imports: [
@@ -39,7 +51,19 @@ import { AmazonDemoOldComponent } from './amazon-demo-old/amazon-demo-old.compon
     MessagesComponent,
     HeroSearchComponent,
     AmazonDemoComponent,
-    AmazonDemoOldComponent
+    AmazonDemoOldComponent,
+    AmazonDemoContainerComponent,
+    DemoComponentAComponent,
+    DemoComponentBComponent,
+    DemoComponentCComponent,
+    DemoComponentDComponent,
+    DemoComponentEComponent,
+    DemoComponentFComponent,
+    DemoComponentGComponent,
+    DemoComponentHComponent,
+    DemoComponentIComponent,
+    DemoComponentJComponent,
+    DemoHostDirective
   ],
   bootstrap: [ AppComponent ],
   schemas: [
