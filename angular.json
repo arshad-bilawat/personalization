@@ -43,9 +43,13 @@
               "src/static/css/product_title.css",
               "src/static/css/promotion.css",
               "src/static/css/show_other_products.css",
-              "src/static/css/star-style.css"
+              "src/static/css/star-style.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,

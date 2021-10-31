@@ -28,6 +28,8 @@ import { DemoComponentHComponent } from './amazon-demo-container/demo-component-
 import { DemoComponentIComponent } from './amazon-demo-container/demo-component-i/demo-component-i.component';
 import { DemoComponentJComponent } from './amazon-demo-container/demo-component-j/demo-component-j.component';
 import { DemoHostDirective } from './amazon-demo-container/demo-host.directive';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -35,7 +37,8 @@ import { DemoHostDirective } from './amazon-demo-container/demo-host.directive';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-
+    CarouselModule,
+    BrowserAnimationsModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.

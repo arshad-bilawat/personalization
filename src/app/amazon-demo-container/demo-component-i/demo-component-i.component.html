@@ -81,58 +81,13 @@
         <div class="row bottom_margin mb-0">
             <!-- Product Image -->
             <div class="col col-xl-6 carousel1_container">
-                <div class="owl-carousel owl-theme carousel1">
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/1.png" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/2.jpg" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/3.jpg" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/4.png" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/1.png" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/2.jpg" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/3.jpg" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/4.png" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/1.png" class="card-img-top">
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/laptop/2.jpg" class="card-img-top">
-                        </div>
-                    </div>
-                </div>
+                <owl-carousel-o [options]="customOptions">
+                    <ng-container *ngFor="let slide of slides">
+                        <ng-template carouselSlide [id]="slide.id">
+                            <img [src]="slide.img">
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>    
             </div>
 
             <!-- Price - Promotions -->
@@ -345,98 +300,21 @@
         <!-- Show other Products in Corousal -->
         <div class="row">
             <div class="col mt-5 mb-5 carousel2_container">
-                <div class="owl-carousel owl-theme carousel2">
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/13.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone 13</h5>
-                                ₹36383.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/13-mini.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone 13</h5>
-                                ₹36369.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/12-mini.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone 12</h5>
-                                ₹65635.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/12.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone 12</h5>
-                                ₹36346.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/13.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone 12</h5>
-                                ₹35363.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/13-mini.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone 11</h5>
-                                ₹36349.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/12.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone XR</h5>
-                                ₹34964.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/12-mini.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone X</h5>
-                                ₹34634.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/12.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone XS</h5>
-                                ₹65660.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_margin">
-                        <div class="card">
-                            <img src="/static/images/products/13.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">iPhone 7</h5>
-                                ₹67735.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <owl-carousel-o [options]="customOptions2">
+                    <ng-container *ngFor="let slide of slides2">
+                        <ng-template carouselSlide [id]="slide.id">
+                            <div class="card_margin">
+                                <div class="card">
+    
+                                    <img [src]="slide.img">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{slide.name}}</h5>
+                                        {{slide.price}}
+                                    </div>
+                                    </div>  
+                                </div>                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>   
             </div>
         </div>
 
@@ -469,24 +347,5 @@
             <p class="footer-bottom-text">All Right reserved by &copy;Attryb Tech 2021.</p>
         </div>
     </div>
-
-    <script>
-        $('.carousel1').owlCarousel({
-            autoplay: true,
-            autoplayHoverPause: true,
-            items: 1,
-            nav: true,
-            dots: true,
-            loop: true,
-        });
-        $('.carousel2').owlCarousel({
-            autoplay: true,
-            autoplayHoverPause: true,
-            items: 4,
-            nav: true,
-            dots: true,
-            loop: true,
-        });
-    </script>
 </body>
 </html>
