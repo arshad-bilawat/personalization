@@ -85,11 +85,14 @@
         <!-- Product Image -->
         <div class="row">
             <div class="carousel1_container">
-
             <owl-carousel-o [options]="customOptions">
                 <ng-container *ngFor="let slide of slides">
                     <ng-template carouselSlide [id]="slide.id">
+                        <div class="card_margin">
+                            <div class="card">
                         <img [src]="slide.img">
+                            </div>
+                        </div>
                     </ng-template>
                 </ng-container>
             </owl-carousel-o>       
