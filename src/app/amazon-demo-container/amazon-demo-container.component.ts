@@ -11,65 +11,108 @@ import { DemoComponentHComponent } from './demo-component-h/demo-component-h.com
 import { DemoComponentIComponent } from './demo-component-i/demo-component-i.component';
 import { DemoComponentJComponent } from './demo-component-j/demo-component-j.component';
 import { DemoTypes } from './demo-types';
-import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-amazon-demo-container',
   templateUrl: './amazon-demo-container.component.html',
   styleUrls: ['./amazon-demo-container.component.css']
 })
+
 export class AmazonDemoContainerComponent implements OnInit {
   @ViewChild(DemoHostDirective, { static: true })
   demoHost!: DemoHostDirective;
-  demoType: string=DemoTypes.DemoA.toString();
-
-  constructor(private cfr: ComponentFactoryResolver,  private route: ActivatedRoute) { }
+  demoType: string = DemoTypes.DemoA.toString();
+  userCountry: string = '';
+  highbandWidth: boolean = true;
+  constructor(private cfr: ComponentFactoryResolver, private http: HttpClient) { }
+  getPosition(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resp => {
+        resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
+      },
+        err => {
+          reject(err);
+        });
+    });
+  }
 
   ngOnInit(): void {
-    let type: number=parseInt(this.route.snapshot.paramMap.get('type')!);
-    this.demoType = DemoTypes[type];
+    this.getPosition().then(x => {
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${x.lat},${x.lng}&key=AIzaSyC0Yznc9lUD-yByt397E8i3X3iLmS5oYTg`;
+      url = encodeURI(url);
+      this.http.post<any>(url, null).subscribe(
+        (response) => {
+          if (response.results.find((x: { address_components: any[]; }) => x.address_components.find(y => y.short_name == 'US'))) {
+            this.userCountry = 'US';
+            console.log('user country is the us');
+          }
+        },
+        (error) => {
+          console.log(error);
+        },
+        ()=>{
+          this.redirect();
+        }
+      );
+    })
 
+  }
+
+  redirect() {
     const viewContainerRef = this.demoHost.viewContainerRef;
     viewContainerRef.clear();
     let component;
-    switch(this.demoType){
-      case "DemoA":
-        component = DemoComponentAComponent;
-        break;
-      case "DemoB":
-        component = DemoComponentBComponent;
-        break;
-        case "DemoC":
-          component = DemoComponentCComponent;
-          break;
-          case "DemoD":
-        component = DemoComponentDComponent;
-        break;
-        case "DemoE":
-        component = DemoComponentEComponent;
-        break;
-        case "DemoF":
-        component = DemoComponentFComponent;
-        break;
-        case "DemoG":
-        component = DemoComponentGComponent;
-        break;
-        case "DemoH":
-        component = DemoComponentHComponent;
-        break;
-        case "DemoI":
-        component = DemoComponentIComponent;
-        break;
-        case "DemoJ":
-        component = DemoComponentJComponent;
-        break;
-        default:
-        component=DemoComponentAComponent
-        break
+    if (this.userCountry == 'US') {
+      component = DemoComponentAComponent    }
+    else if (this.highbandWidth) {
+      component = DemoComponentAComponent;
     }
-    const componentFactory = 
-    this.cfr.resolveComponentFactory(component);
-    const componentRef=viewContainerRef.createComponent(componentFactory);
-  }
+    else if (navigator.cookieEnabled) {
+      component = DemoComponentBComponent;
+    }
+    else if (navigator.platform != 'Win32') {
+      component = DemoComponentCComponent;
+    }
+    else if (document.referrer != '') {
+      component = DemoComponentDComponent;
+    }
+    else if (navigator.userAgent.indexOf('samsung')) {
+      component = DemoComponentEComponent;
+    }
+    else if (!window.screenTop && !window.screenY) {
+      //full screen
+      component = DemoComponentFComponent;
+    }
+    else if (window.screen.width > 1400 && window.screen.height > 800) {
+      //full hd
+      component = DemoComponentGComponent;
+    }
+    else if (navigator.doNotTrack) {
+      component = DemoComponentHComponent;
+    }
+    else if (navigator.language == "en-US") {
+      component = DemoComponentIComponent
+    }
+    else if (this.userCountry != 'US') {
+      component = DemoComponentJComponent
+    }
+    else {
+      component = DemoComponentAComponent
+    }
 
+
+    const componentFactory =
+      this.cfr.resolveComponentFactory(component);
+    const componentRef = viewContainerRef.createComponent(componentFactory);
+    console.log('user country:' + this.userCountry);
+    console.log('high bandwidth:' + this.highbandWidth);
+    console.log('cookie enabled:' + navigator.cookieEnabled);
+    console.log('platform:' + navigator.platform);
+    console.log('referrer:' + document.referrer);
+    console.log('userAgent:' + navigator.userAgent);
+    console.log('full screen:'); console.log(!window.screenTop && !window.screenY);
+    console.log('dont track:' + navigator.doNotTrack);
+    console.log('language:' + navigator.language);
+  }
 }

@@ -9,12 +9,11 @@ import { AmazonDemoOldComponent } from './amazon-demo-old/amazon-demo-old.compon
 import { AmazonDemoContainerComponent } from './amazon-demo-container/amazon-demo-container.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/amazon-demo/1', pathMatch: 'full' },
-  { path: 'amazon-demo', redirectTo: '/amazon-demo/1', pathMatch: 'full' },
+  { path: '', redirectTo: '/amazon-demo', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
-  {path:'amazon-demo/:type', component: AmazonDemoContainerComponent},
+  {path:'amazon-demo', component: AmazonDemoContainerComponent},
 
 ];
 
