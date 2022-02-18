@@ -12,6 +12,7 @@ import { DemoComponentIComponent } from './demo-component-i/demo-component-i.com
 import { DemoComponentJComponent } from './demo-component-j/demo-component-j.component';
 import { DemoTypes } from './demo-types';
 import { HttpClient } from '@angular/common/http';
+import { SignalRService } from '../signalr.servce';
 
 @Component({
   selector: 'app-amazon-demo-container',
@@ -25,7 +26,8 @@ export class AmazonDemoContainerComponent implements OnInit {
   demoType: string = DemoTypes.DemoA.toString();
   userCountry: string = '';
   highbandWidth: boolean = true;
-  constructor(private cfr: ComponentFactoryResolver, private http: HttpClient) { }
+  constructor(private cfr: ComponentFactoryResolver, private http: HttpClient,
+    private signalr:SignalRService) { }
   getPosition(): Promise<any> {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resp => {
@@ -38,6 +40,9 @@ export class AmazonDemoContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.signalr.startConnection();
+    this.signalr.addActivityListerner();   
+
     this.getPosition().then(x => {
       let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${x.lat},${x.lng}&key=AIzaSyC0Yznc9lUD-yByt397E8i3X3iLmS5oYTg`;
       url = encodeURI(url);
@@ -114,5 +119,11 @@ export class AmazonDemoContainerComponent implements OnInit {
     console.log('full screen:'); console.log(!window.screenTop && !window.screenY);
     console.log('dont track:' + navigator.doNotTrack);
     console.log('language:' + navigator.language);
+  }
+  counter = 0;
+  public onButtonClick():void{
+    this.counter++;
+    this.signalr.activityHandler("counter count =" + this.counter);
+
   }
 }
