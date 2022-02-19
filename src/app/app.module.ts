@@ -30,6 +30,7 @@ import { DemoComponentJComponent } from './amazon-demo-container/demo-component-
 import { DemoHostDirective } from './amazon-demo-container/demo-host.directive';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationComponent } from './amazon-demo-container/notification/notification.component';
 
 @NgModule({
   imports: [
@@ -66,7 +67,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DemoComponentHComponent,
     DemoComponentIComponent,
     DemoComponentJComponent,
-    DemoHostDirective
+    DemoHostDirective,
+    NotificationComponent
   ],
   bootstrap: [ AppComponent ],
   schemas: [

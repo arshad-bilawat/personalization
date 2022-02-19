@@ -22,15 +22,7 @@ export class AppComponent {
     setUserType(e: any){
       this.userService.setUserType(e.target.value);
       this.messageService.add('selected user type : '+e.target.value);
-      this.router.navigate(['/dashboard']);
+      //this.router.navigate(['/dashboard']);
     }
     
-  ngAfterViewInit(){
-    $('.links').on('click', function(e){
-      console.log(e.target.innerText + " " + e.target + " " + e.timeStamp);
-    });   
-
-    $('button').on('click',function(e){
-    }); 
-  }
 }

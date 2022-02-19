@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, Directive, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, Directive, ComponentFactoryResolver, HostListener } from '@angular/core';
 import { DemoHostDirective } from './demo-host.directive';
 import { DemoComponentAComponent } from './demo-component-a/demo-component-a.component';
 import { DemoComponentBComponent } from './demo-component-b/demo-component-b.component';
@@ -123,7 +123,17 @@ export class AmazonDemoContainerComponent implements OnInit {
   counter = 0;
   public onButtonClick():void{
     this.counter++;
-    this.signalr.activityHandler("counter count =" + this.counter);
 
   }
+
+  @HostListener('click', ['$event']) onClick($event: any){
+    const hotListernerList = ["BUTTON", "A"];
+    if(hotListernerList.includes($event.target.nodeName)){
+      this.signalr.activityHandler($event.type,
+        $event.target.textContent,
+        $event.target.type,
+        document.title,
+        document.URL);
+    }    
+}
 }

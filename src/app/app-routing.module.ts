@@ -7,6 +7,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { AmazonDemoComponent } from './amazon-demo/amazon-demo.component';
 import { AmazonDemoOldComponent } from './amazon-demo-old/amazon-demo-old.component';
 import { AmazonDemoContainerComponent } from './amazon-demo-container/amazon-demo-container.component';
+import { NotificationComponent } from './amazon-demo-container/notification/notification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/amazon-demo', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
   {path:'amazon-demo', component: AmazonDemoContainerComponent},
+  {path:'notifications', component: NotificationComponent}
 
 ];
 
