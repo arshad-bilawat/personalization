@@ -14,4 +14,8 @@ export class User{
     nodeName!: string;
     title!: string;
     url!: string;
+    time!: string;
+    ipAddress!: string;
+    
+
 }
