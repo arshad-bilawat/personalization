@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 declare var $: any;
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -49,7 +50,9 @@ export class AddCartComponent implements OnInit {
     loop: true    
   }
 
-  constructor() { }
+  constructor(private titleService: Title) { 
+    titleService.setTitle("Attryb Tech: Add Cart");
+  }
 
   ngAfterViewInit():void{
 

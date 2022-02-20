@@ -57,74 +57,74 @@ export class AmazonDemoContainerComponent implements OnInit {
           console.log(error);
         },
         ()=>{
-          this.redirect();
+          // this.redirect();
         }
       );
     })
 
   }
 
-  redirect() {
-    const viewContainerRef = this.demoHost.viewContainerRef;
-    viewContainerRef.clear();
-    let component;
-    if (this.userCountry == 'US') {
-      component = AddCartComponent    }
-    else if (this.highbandWidth) {
-      component = AddCartComponent;
-    }
-    else if (navigator.cookieEnabled) {
-      component = BuyNowComponent;
-    }
-    else if (navigator.platform != 'Win32') {
-      component = ImagePrioritizeComponent;
-    }
-    else if (document.referrer != '') {
-      component = OriginalComponent;
-    }
-    else if (navigator.userAgent.indexOf('samsung')) {
-      component = ProductFeatureComponent;
-    }
-    else if (!window.screenTop && !window.screenY) {
-      //full screen
-      component = ProductPriceComponent;
-    }
-    else if (window.screen.width > 1400 && window.screen.height > 800) {
-      //full hd
-      component = ProductReviewComponent;
-    }
-    else if (navigator.doNotTrack) {
-      component = ProductTitleComponent;
-    }
-    else if (navigator.language == "en-US") {
-      component = PromotionComponent
-    }
-    else if (this.userCountry != 'US') {
-      component = ShowOtherProductsComponent
-    }
-    else {
-      component = AddCartComponent
-    }
+  // redirect() {
+  //   const viewContainerRef = this.demoHost.viewContainerRef;
+  //   viewContainerRef.clear();
+  //   let component;
+  //   if (this.userCountry == 'US') {
+  //     component = AddCartComponent    }
+  //   else if (this.highbandWidth) {
+  //     component = AddCartComponent;
+  //   }
+  //   else if (navigator.cookieEnabled) {
+  //     component = BuyNowComponent;
+  //   }
+  //   else if (navigator.platform != 'Win32') {
+  //     component = ImagePrioritizeComponent;
+  //   }
+  //   else if (document.referrer != '') {
+  //     component = OriginalComponent;
+  //   }
+  //   else if (navigator.userAgent.indexOf('samsung')) {
+  //     component = ProductFeatureComponent;
+  //   }
+  //   else if (!window.screenTop && !window.screenY) {
+  //     //full screen
+  //     component = ProductPriceComponent;
+  //   }
+  //   else if (window.screen.width > 1400 && window.screen.height > 800) {
+  //     //full hd
+  //     component = ProductReviewComponent;
+  //   }
+  //   else if (navigator.doNotTrack) {
+  //     component = ProductTitleComponent;
+  //   }
+  //   else if (navigator.language == "en-US") {
+  //     component = PromotionComponent
+  //   }
+  //   else if (this.userCountry != 'US') {
+  //     component = ShowOtherProductsComponent
+  //   }
+  //   else {
+  //     component = AddCartComponent
+  //   }
 
 
-    const componentFactory =
-      this.cfr.resolveComponentFactory(component);
-    const componentRef = viewContainerRef.createComponent(componentFactory);
-    console.log('user country:' + this.userCountry);
-    console.log('high bandwidth:' + this.highbandWidth);
-    console.log('cookie enabled:' + navigator.cookieEnabled);
-    console.log('platform:' + navigator.platform);
-    console.log('referrer:' + document.referrer);
-    console.log('userAgent:' + navigator.userAgent);
-    console.log('full screen:'); console.log(!window.screenTop && !window.screenY);
-    console.log('dont track:' + navigator.doNotTrack);
-    console.log('language:' + navigator.language);
-  }
-  counter = 0;
-  public onButtonClick():void{
-    this.counter++;
+  //   const componentFactory =
+  //     this.cfr.resolveComponentFactory(component);
+  //   const componentRef = viewContainerRef.createComponent(componentFactory);
+  //   console.log('user country:' + this.userCountry);
+  //   console.log('high bandwidth:' + this.highbandWidth);
+  //   console.log('cookie enabled:' + navigator.cookieEnabled);
+  //   console.log('platform:' + navigator.platform);
+  //   console.log('referrer:' + document.referrer);
+  //   console.log('userAgent:' + navigator.userAgent);
+  //   console.log('full screen:'); console.log(!window.screenTop && !window.screenY);
+  //   console.log('dont track:' + navigator.doNotTrack);
+  //   console.log('language:' + navigator.language);
+  // }
+  // counter = 0;
+  // public onButtonClick():void{
+  //   this.counter++;
 
-  }
+  // }
 
   @HostListener('click', ['$event']) onClick($event: any){
     const hotListernerList = ["BUTTON", "A"];

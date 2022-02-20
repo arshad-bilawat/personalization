@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -46,7 +47,9 @@ export class ProductReviewComponent implements OnInit {
     dots: true,
     loop: true    
   }
-  constructor() { }
+  constructor(private titleService: Title) { 
+    titleService.setTitle("Attryb Tech: Product Review");
+  }
 
   ngOnInit(): void {
   }
