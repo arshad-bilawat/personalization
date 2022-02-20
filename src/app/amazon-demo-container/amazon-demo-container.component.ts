@@ -131,7 +131,7 @@ export class AmazonDemoContainerComponent implements OnInit {
     if(hotListernerList.includes($event.target.nodeName)){
       this.signalr.activityHandler($event.type,
         $event.target.textContent,
-        $event.target.type,
+        $event.target.nodeName,
         document.title,
         document.URL);
     }    
