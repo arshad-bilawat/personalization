@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, Directive, ComponentFactoryResolver, HostListener } from '@angular/core';
 import { DemoHostDirective } from './demo-host.directive';
-import { DemoComponentAComponent } from './demo-component-a/demo-component-a.component';
-import { DemoComponentBComponent } from './demo-component-b/demo-component-b.component';
-import { DemoComponentCComponent } from './demo-component-c/demo-component-c.component';
-import { DemoComponentDComponent } from './demo-component-d/demo-component-d.component';
-import { DemoComponentEComponent } from './demo-component-e/demo-component-e.component';
-import { DemoComponentFComponent } from './demo-component-f/demo-component-f.component';
-import { DemoComponentGComponent } from './demo-component-g/demo-component-g.component';
-import { DemoComponentHComponent } from './demo-component-h/demo-component-h.component';
-import { DemoComponentIComponent } from './demo-component-i/demo-component-i.component';
-import { DemoComponentJComponent } from './demo-component-j/demo-component-j.component';
+import { AddCartComponent } from './add-cart/add-cart.component';
+import { BuyNowComponent } from './buy-now/buy-now.component';
+import { ImagePrioritizeComponent } from './image-prioritize/image-prioritize.component';
+import { OriginalComponent } from './original/original.component';
+import { ProductFeatureComponent } from './product-feature/product-feature.component';
+import { ProductPriceComponent } from './product-price/product-price.component';
+import { ProductReviewComponent } from './product-review/product-review.component';
+import { ProductTitleComponent } from './product-title/product-title.component';
+import { PromotionComponent } from './promotion/promotion.component';
+import { ShowOtherProductsComponent } from './show-other-products/show-other-products.component';
 import { DemoTypes } from './demo-types';
 import { HttpClient } from '@angular/common/http';
 import { SignalRService } from '../signalr.servce';
@@ -69,41 +69,41 @@ export class AmazonDemoContainerComponent implements OnInit {
     viewContainerRef.clear();
     let component;
     if (this.userCountry == 'US') {
-      component = DemoComponentAComponent    }
+      component = AddCartComponent    }
     else if (this.highbandWidth) {
-      component = DemoComponentAComponent;
+      component = AddCartComponent;
     }
     else if (navigator.cookieEnabled) {
-      component = DemoComponentBComponent;
+      component = BuyNowComponent;
     }
     else if (navigator.platform != 'Win32') {
-      component = DemoComponentCComponent;
+      component = ImagePrioritizeComponent;
     }
     else if (document.referrer != '') {
-      component = DemoComponentDComponent;
+      component = OriginalComponent;
     }
     else if (navigator.userAgent.indexOf('samsung')) {
-      component = DemoComponentEComponent;
+      component = ProductFeatureComponent;
     }
     else if (!window.screenTop && !window.screenY) {
       //full screen
-      component = DemoComponentFComponent;
+      component = ProductPriceComponent;
     }
     else if (window.screen.width > 1400 && window.screen.height > 800) {
       //full hd
-      component = DemoComponentGComponent;
+      component = ProductReviewComponent;
     }
     else if (navigator.doNotTrack) {
-      component = DemoComponentHComponent;
+      component = ProductTitleComponent;
     }
     else if (navigator.language == "en-US") {
-      component = DemoComponentIComponent
+      component = PromotionComponent
     }
     else if (this.userCountry != 'US') {
-      component = DemoComponentJComponent
+      component = ShowOtherProductsComponent
     }
     else {
-      component = DemoComponentAComponent
+      component = AddCartComponent
     }
 
 

@@ -17,16 +17,16 @@ import { MessagesComponent } from './messages/messages.component';
 import { AmazonDemoComponent } from './amazon-demo/amazon-demo.component';
 import { AmazonDemoOldComponent } from './amazon-demo-old/amazon-demo-old.component';
 import { AmazonDemoContainerComponent } from './amazon-demo-container/amazon-demo-container.component';
-import { DemoComponentAComponent } from './amazon-demo-container/demo-component-a/demo-component-a.component';
-import { DemoComponentBComponent } from './amazon-demo-container/demo-component-b/demo-component-b.component';
-import { DemoComponentCComponent } from './amazon-demo-container/demo-component-c/demo-component-c.component';
-import { DemoComponentDComponent } from './amazon-demo-container/demo-component-d/demo-component-d.component';
-import { DemoComponentEComponent } from './amazon-demo-container/demo-component-e/demo-component-e.component';
-import { DemoComponentFComponent } from './amazon-demo-container/demo-component-f/demo-component-f.component';
-import { DemoComponentGComponent } from './amazon-demo-container/demo-component-g/demo-component-g.component';
-import { DemoComponentHComponent } from './amazon-demo-container/demo-component-h/demo-component-h.component';
-import { DemoComponentIComponent } from './amazon-demo-container/demo-component-i/demo-component-i.component';
-import { DemoComponentJComponent } from './amazon-demo-container/demo-component-j/demo-component-j.component';
+import { AddCartComponent } from './amazon-demo-container/add-cart/add-cart.component';
+import { BuyNowComponent } from './amazon-demo-container/buy-now/buy-now.component';
+import { ImagePrioritizeComponent } from './amazon-demo-container/image-prioritize/image-prioritize.component';
+import { OriginalComponent } from './amazon-demo-container/original/original.component';
+import { ProductFeatureComponent } from './amazon-demo-container/product-feature/product-feature.component';
+import { ProductPriceComponent  } from './amazon-demo-container/product-price/product-price.component';
+import { ProductReviewComponent  } from './amazon-demo-container/product-review/product-review.component';
+import { ProductTitleComponent  } from './amazon-demo-container/product-title/product-title.component';
+import {  PromotionComponent } from './amazon-demo-container/promotion/promotion.component';
+import {  ShowOtherProductsComponent } from './amazon-demo-container/show-other-products/show-other-products.component';
 import { DemoHostDirective } from './amazon-demo-container/demo-host.directive';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -57,16 +57,16 @@ import { NotificationComponent } from './amazon-demo-container/notification/noti
     AmazonDemoComponent,
     AmazonDemoOldComponent,
     AmazonDemoContainerComponent,
-    DemoComponentAComponent,
-    DemoComponentBComponent,
-    DemoComponentCComponent,
-    DemoComponentDComponent,
-    DemoComponentEComponent,
-    DemoComponentFComponent,
-    DemoComponentGComponent,
-    DemoComponentHComponent,
-    DemoComponentIComponent,
-    DemoComponentJComponent,
+    AddCartComponent,
+    BuyNowComponent,
+    ImagePrioritizeComponent,
+    OriginalComponent,
+    ProductFeatureComponent,
+    ProductPriceComponent,
+    ProductReviewComponent,
+    ProductTitleComponent,
+    PromotionComponent,
+    ShowOtherProductsComponent,
     DemoHostDirective,
     NotificationComponent
   ],
