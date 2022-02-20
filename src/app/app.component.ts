@@ -22,7 +22,7 @@ export class AppComponent {
     setUserType(e: any){
       this.userService.setUserType(e.target.value);
       this.messageService.add('selected user type : '+e.target.value);
-      this.router.navigate(['/dashboard']);
+     // this.router.navigate(['/dashboard']);
     }
     
 }

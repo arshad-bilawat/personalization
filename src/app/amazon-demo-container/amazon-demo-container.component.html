@@ -10,36 +10,36 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="original.html">Original</a>
+                            <a class="nav-link" aria-current="page" [routerLink]="['original']">Original</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="image_prioritize.html">Image
+                            <a class="nav-link" aria-current="page" [routerLink]="['image-prioritize']">Image
                                 Prioritize</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="add_cart_bottom.html">Add Cart
+                            <a class="nav-link active" aria-current="page" [routerLink]="['add-cart']">Add Cart
                                 Bottom</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="buy_now.html">Buy Now</a>
+                            <a class="nav-link" aria-current="page" [routerLink]="['buy-now']">Buy Now</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="product_feature.html">Product Feature</a>
+                            <a class="nav-link" aria-current="page" [routerLink]="['product-feature']">Product Feature</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="promotion.html">Promotion</a>
+                            <a class="nav-link" aria-current="page" [routerLink]="['promotion']">Promotion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="product_title.html">Product Title</a>
+                            <a class="nav-link" aria-current="page" [routerLink]="['product-title']">Product Title</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="product_price.html">Product Price</a>
+                            <a class="nav-link" aria-current="page" [routerLink]="['product-price']">Product Price</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="product_review.html">Product Reviews</a>
+                            <a class="nav-link" aria-current="page" [routerLink]="['product-review']">Product Reviews</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="show_other_products.html">Other
+                            <a class="nav-link" aria-current="page" [routerLink]="['show-other']">Other
                                 Products</a>
                         </li>
                     </ul>
@@ -53,7 +53,10 @@
         </nav>
     </div>
 
-<ng-template demoHost></ng-template>
+<!-- <ng-template demoHost></ng-template> -->
+
+<router-outlet></router-outlet>
+
 
   <!-- Footer -->
   <div class="row footer">
