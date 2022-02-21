@@ -41,7 +41,7 @@ export class UserService {
   }
   getGeoLocations(){
     return this.http
-    .get('http://ipinfo.io?token=9ef64f8b6a6ff6')
+    .get('https://ipinfo.io?token=9ef64f8b6a6ff6')
     .pipe(
       catchError(this.handleError)
     );
