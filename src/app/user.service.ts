@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { User } from './amazon-demo-container/user';
+import { Connection, User } from './amazon-demo-container/user';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -16,19 +16,32 @@ export class UserService {
     this.user.doNotTrack = navigator.doNotTrack;
     this.user.platform = navigator.platform;
     this.user.referrer = document.referrer;
-    this.user.userAgent = navigator.userAgent.substring(0, 50);
+    this.user.userAgent = navigator.userAgent.substring(0, 40);
     this.user.language = navigator.language;
+    this.user.onLine = navigator.onLine;
+    this.user.vendor=navigator.vendor;
+    this.user.javaEnabled=  navigator.javaEnabled();
+
+
+
+
     let date= new Date();
     this.user.time =  date.toUTCString();
     let self=this;
     this.getGeoLocations().subscribe((data: any)=>{
       self.user.ipAddress=data.ip;
+      self.user.city=data.city;
+      self.user.country=data.country;
+      self.user.postal=data.postal;
+      self.user.region=data.region;
+      self.user.timezone=data.timezone;
+      self.user.location=data.loc;
     })
 
   }
   getGeoLocations(){
     return this.http
-    .get('https://api.ipify.org/?format=json')
+    .get('http://ipinfo.io?token=9ef64f8b6a6ff6')
     .pipe(
       catchError(this.handleError)
     );
@@ -51,7 +64,7 @@ export class UserService {
   }
 
   newGuid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0,
         v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);

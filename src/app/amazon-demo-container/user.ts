@@ -16,6 +16,28 @@ export class User{
     url!: string;
     time!: string;
     ipAddress!: string;
-    
+    city!: string;
+    country!: string;
+    location!:string;
+    postal!:string;
+    region!:string;
+    timezone!:string;
+    connection!: Connection;
+    readonly languages!: Array<string>;
+    pdfViewerEnabled!: boolean;
+    onLine!: boolean;
+    plugins!:Plugin;
+    vendor!: string;
+    javaEnabled!:boolean;
+}
 
+export class Plugin{
+    name!: string;    
+}
+
+export class Connection{
+    downlink!:string;
+    effectiveType!:string;
+    rtt!: string;
+    saveData!:string;
 }

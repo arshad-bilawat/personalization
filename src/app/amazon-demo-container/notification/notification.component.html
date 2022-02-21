@@ -7,6 +7,12 @@
     <th>Title</th>
     <th>Time</th>
     <Th>IP</Th>
+    <th>city</th>
+    <th>country</th>
+    <th>location</th>
+    <th>postal</th>
+    <th>region</th>
+    <th>timezone</th>
     <th>Url</th>
     <th>Cookie</th>
     <th>Platform</th>
@@ -14,6 +20,10 @@
     <th>UserAgent</th>
     <th>Track</th>
     <th>Language</th>
+    <th>onLine</th>
+    <th>vendor</th>
+    <th>javaEnabled</th>
+
     <tr *ngFor="let notification of notifications">
         <td>
             {{notification.id}}
@@ -37,6 +47,24 @@
             {{notification.ipAddress}}
         </td>
         <td>
+            {{notification.city}}
+        </td>
+        <td>
+            {{notification.country}}
+        </td>
+        <td>
+            {{notification.location}}
+        </td>
+        <td>
+            {{notification.postal}}
+        </td>
+        <td>
+            {{notification.region}}
+        </td>
+        <td>
+            {{notification.timezone}}
+        </td>        
+        <td>
             {{notification.url}}
         </td>
         <td>
@@ -56,6 +84,15 @@
         </td>
         <td>
             {{notification.language}}
+        </td>
+        <td>
+            {{notification.onLine}}
+        </td>
+        <td>
+            {{notification.vendor}}
+        </td>
+        <td>
+            {{notification.javaEnabled}}
         </td>
     </tr>
 </table>

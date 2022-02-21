@@ -1,12 +1,14 @@
 #customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
   }
   
   #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 2px;
+    min-width: 120px;
+    font-size: small;
   }
   
   #customers tr:nth-child(even){background-color: #f2f2f2;}
