@@ -154,4 +154,22 @@ export class AmazonDemoContainerComponent implements OnInit {
         document.URL);
     }, 3000);
   }
+
+  @HostListener('change', ['$event']) onChange($event: any) {
+    this.signalr.activityHandler($event.type,
+      $event.target.value,
+      $event.target.nodeName,
+      document.title,
+      document.URL);
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll($event: any) {
+    console.log($event);
+    // this.signalr.activityHandler($event.type,
+    //   $event.target.value,
+    //   $event.target.nodeName,
+    //   document.title,
+    //   document.URL);
+  }
 }
