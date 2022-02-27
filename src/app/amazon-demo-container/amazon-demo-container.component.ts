@@ -136,7 +136,7 @@ export class AmazonDemoContainerComponent implements OnInit {
         document.URL);
     }
     else if ($event.view.getSelection().type == 'Range') {
-      this.signalr.activityHandler($event.type + ' Range',
+      this.signalr.activityHandler('Selection',
         $event.view.getSelection().toString(),
         $event.target.nodeName,
         document.title,
