@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Connection, User } from './amazon-demo-container/user';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -11,7 +12,6 @@ export class UserService {
   constructor(    private http: HttpClient
     ) {
     this.user = new User();
-    this.user.id = this.newGuid();
     this.user.cookieEnabled = navigator.cookieEnabled;
     this.user.doNotTrack = navigator.doNotTrack;
     this.user.platform = navigator.platform;
@@ -36,6 +36,10 @@ export class UserService {
       self.user.region=data.region;
       self.user.timezone=data.timezone;
       self.user.location=data.loc;
+
+      const md5=new Md5();
+      this.user.id= md5.appendStr(self.user.ipAddress+ self.user.language).end().toString();
+
     })
 
   }

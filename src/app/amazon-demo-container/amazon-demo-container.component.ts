@@ -27,7 +27,7 @@ export class AmazonDemoContainerComponent implements OnInit {
   userCountry: string = '';
   highbandWidth: boolean = true;
   constructor(private cfr: ComponentFactoryResolver, private http: HttpClient,
-    private signalr:SignalRService) { }
+    private signalr: SignalRService) { }
   getPosition(): Promise<any> {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resp => {
@@ -41,7 +41,7 @@ export class AmazonDemoContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.signalr.startConnection();
-    this.signalr.addActivityListerner();   
+    this.signalr.addActivityListerner();
 
     this.getPosition().then(x => {
       let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${x.lat},${x.lng}&key=AIzaSyC0Yznc9lUD-yByt397E8i3X3iLmS5oYTg`;
@@ -56,7 +56,7 @@ export class AmazonDemoContainerComponent implements OnInit {
         (error) => {
           console.log(error);
         },
-        ()=>{
+        () => {
           // this.redirect();
         }
       );
@@ -126,14 +126,32 @@ export class AmazonDemoContainerComponent implements OnInit {
 
   // }
 
-  @HostListener('click', ['$event']) onClick($event: any){
+  @HostListener('click', ['$event']) onClick($event: any) {
     const hotListernerList = ["BUTTON", "A"];
-    if(hotListernerList.includes($event.target.nodeName)){
+    if (hotListernerList.includes($event.target.nodeName)) {
       this.signalr.activityHandler($event.type,
         $event.target.textContent,
         $event.target.nodeName,
         document.title,
         document.URL);
-    }    
-}
+    }
+    else if ($event.view.getSelection().type == 'Range') {
+      this.signalr.activityHandler($event.type + ' Range',
+        $event.view.getSelection().toString(),
+        $event.target.nodeName,
+        document.title,
+        document.URL);
+    }
+  }
+
+  @HostListener('window:load', ['$event'])
+  onPageLoad($event: Event) {
+    setTimeout(() => {                           // <<<---using ()=> syntax
+      this.signalr.activityHandler($event.type,
+        '',
+        '',
+        document.title,
+        document.URL);
+    }, 3000);
+  }
 }

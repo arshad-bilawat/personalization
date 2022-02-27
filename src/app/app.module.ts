@@ -71,6 +71,7 @@ import { NotificationComponent } from './amazon-demo-container/notification/noti
     NotificationComponent
   ],
   bootstrap: [ AppComponent ],
+  providers:[],
   schemas: [
     NO_ERRORS_SCHEMA,
     CUSTOM_ELEMENTS_SCHEMA 
