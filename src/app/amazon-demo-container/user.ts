@@ -29,6 +29,18 @@ export class User{
     plugins!:Plugin;
     vendor!: string;
     javaEnabled!:boolean;
+    browser!:string;
+    browser_version!:string;
+    device!:string;
+    deviceType!:string;
+    orientation!:string;
+    os!:string;
+    os_version!:string;
+    isDesktop!:boolean;
+    isTablet!:boolean;
+    isPhone!:boolean;
+    requestId!:string;
+    visitorFound!:boolean;
 }
 
 export class Plugin{

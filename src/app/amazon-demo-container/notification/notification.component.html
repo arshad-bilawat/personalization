@@ -1,6 +1,7 @@
 {{notifications}}
 <table  id="customers">
     <th>Id</th>
+    <th>requestId</th>
     <th>Action</th>
     <th>Desc</th>
     <th>Node</th>
@@ -23,11 +24,24 @@
     <th>onLine</th>
     <th>vendor</th>
     <th>javaEnabled</th>
-
+    <th>browser</th>
+    <th>browser_version</th>
+    <th>device</th>
+    <th>deviceType</th>
+    <th>orientation</th>
+    <th>os</th>
+    <th>os_version</th>
+    <th>isDesktop</th>
+    <th>isTablet</th>
+    <th>isPhone</th>
+    <th>visitorFound</th>
     <tr *ngFor="let notification of notifications">
         <td>
             {{notification.id}}
         </td>
+        <td>
+            <a [routerLink]="" (click)="getRequest(notification.id,notification.requestId)"> {{notification.requestId}}</a>
+         </td>
         <td>
             {{notification.action}}
         </td>
@@ -94,5 +108,40 @@
         <td>
             {{notification.javaEnabled}}
         </td>
+        <td>
+            {{notification.browser}}
+        </td>
+        <td>
+            {{notification.browser_version}}
+        </td>
+        <td>
+            {{notification.device}}
+        </td>
+        <td>
+            {{notification.deviceType}}
+        </td>
+        <td>
+            {{notification.orientation}}
+        </td>
+        <td>
+            {{notification.os}}
+        </td>
+        <td>
+            {{notification.os_version}}
+        </td>
+        <td>
+            {{notification.isDesktop}}
+        </td>
+        <td>
+            {{notification.isTablet}}
+        </td>
+        <td>
+            {{notification.isPhone}}
+        </td>
+        <td>
+            {{notification.visitorFound}}
+        </td>
+        
     </tr>
 </table>
+<div style="max-height: 800px; max-width: 500px;"><pre><p>{{visitData | json}}</p></pre></div>
