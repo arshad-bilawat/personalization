@@ -52,8 +52,7 @@ fpPromise
     );
 
 
-    let date= new Date();
-    this.user.time =  date.toUTCString();
+
     let self=this;
     this.getGeoLocations().subscribe((data: any)=>{
       self.user.ipAddress=data.ip;
@@ -120,6 +119,8 @@ fpPromise
     this.user.nodeName = nodeName;
     this.user.url = url;
     this.user.title = title;
+    let date= new Date();
+    this.user.time =  date.toUTCString();
   }
   setUserType(userType: string) {
     this.userType = userType;
