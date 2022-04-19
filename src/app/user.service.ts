@@ -42,7 +42,8 @@ const fpPromise = FingerprintJS.load({
 
 // Get the visitor identifier when you need it.
 fpPromise
-  .then(fp => fp.get())
+  .then(fp => fp.get({  extendedResult: true
+  }))
   .then(result => 
     {
       this.user.id= result.visitorId;
