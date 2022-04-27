@@ -28,7 +28,6 @@ export class UserService {
 
 
 
-
     let self=this;
     this.getGeoLocations().subscribe((data: any)=>{
       self.user.ipAddress=data.ip;
