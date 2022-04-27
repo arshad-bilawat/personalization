@@ -13,6 +13,8 @@ import { ShowOtherProductsComponent } from './show-other-products/show-other-pro
 import { DemoTypes } from './demo-types';
 import { HttpClient } from '@angular/common/http';
 import { SignalRService } from '../signalr.servce';
+declare var require: any
+const {startTracking} =require('activity-insight');
 
 @Component({
   selector: 'app-amazon-demo-container',
@@ -40,6 +42,8 @@ export class AmazonDemoContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var a= startTracking();
+    console.log(a);
     this.signalr.startConnection();
     this.signalr.addActivityListerner();
 

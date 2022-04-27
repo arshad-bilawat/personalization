@@ -4,14 +4,12 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Connection, User } from './amazon-demo-container/user';
 import {Md5} from 'ts-md5/dist/md5';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
   userType: string = "type1";
   user!: User;
-  constructor(    private http: HttpClient, private deviceDectector: DeviceDetectorService
+  constructor(    private http: HttpClient
     ) {
     this.user = new User();
     this.user.cookieEnabled = navigator.cookieEnabled;
@@ -24,32 +22,10 @@ export class UserService {
     this.user.vendor=navigator.vendor;
     this.user.javaEnabled=  navigator.javaEnabled();
 
-var device = this.deviceDectector.getDeviceInfo()
-this.user.browser=device.browser;
-this.user.browser_version=device.browser_version;
-this.user.device=device.device;
-this.user.deviceType=device.deviceType;
-this.user.orientation=device.orientation;
-this.user.os=device.os;
-this.user.os_version=device.os_version;
-this.user.isDesktop=this.deviceDectector.isDesktop();
-this.user.isPhone=this.deviceDectector.isMobile();
-this.user.isTablet =this.deviceDectector.isTablet()
-// Initialize an agent at application startup.
-const fpPromise = FingerprintJS.load({
-  apiKey: '0h5G0ShSmP6LakGkdn6E'
-})
+
 
 // Get the visitor identifier when you need it.
-fpPromise
-  .then(fp => fp.get())
-  .then(result => 
-    {
-      this.user.id= result.visitorId;
-      this.user.requestId=result.requestId;
-      this.user.visitorFound=result.visitorFound;
-    }
-    );
+
 
 
 
